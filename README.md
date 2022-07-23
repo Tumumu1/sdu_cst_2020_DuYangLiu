@@ -12,6 +12,8 @@ SM3的实现参考自国家标准文档http://c.gb688.cn/bzgk/gb/showGb?type=onl
 
 SM3的Rho攻击思路：
   类似于Pollard Rho算法的思想一样，对于选定的消息，分别进行一次和两次的SM3运算，然后进行不断地重复，直到“套圈现象”发生，则找到了一个碰撞。
+  以20bit攻击为例：
+![image](https://user-images.githubusercontent.com/105497838/180598081-4b4361df-9b8b-4a36-a573-9c9dfed0ab04.png)
 
 
 SM4参考自国家标准文档，使用C++实现，并基于基本实现进行了SIMD优化。
