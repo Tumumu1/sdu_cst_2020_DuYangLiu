@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include <Windows.h>
-#include "sm4_simd_sbox.h"
+#include "sm4_sbox.h"
 int main() {
     // 01 23 45 67 89 ab cd ef fe dc ba 98 76 54 32 10
     unsigned char key[16 * 8] = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xab,
