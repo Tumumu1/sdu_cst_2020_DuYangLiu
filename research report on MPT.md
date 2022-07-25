@@ -1,6 +1,10 @@
-MPT(Merkle Patricia Tree)树：
+Merkle Patricia Tree简称MPT树，提供了一个基于加密学的，自校验防篡改的数据结构，采用[key,value]键值对来储存数据，在以太坊范围内，限定键值的类型只能是字符串。MPT树插入、删除、查找操作的时间复杂度均为O(log(n))，但相对于红黑树来说，MPT更好理解和编码。
 
-  在ethereum中，使用了一种特殊的十六进制前缀（hex-prefix，HP）编码，所以在字母表中就有16个字符。这其中的一个字符为一个nibble。
+MPT树结合了基数树(Radix Tree)、Merkle Tree、Patricia Tree的优点。Radix Tree的结构如下:
+
+[i0, i1, ..., iN, value]，i0到iN要么指向一个节点，要么是NULL，value存储一个值，这是MPT树用来索引值的最基本结构。Patricia Tree解决了Radix Tree的低效和空间浪费问题。Merkle Tree解决了数据校验及防篡改问题。
+
+在ethereum中，使用了一种特殊的十六进制前缀（hex-prefix，HP）编码，所以在字母表中就有16个字符。这其中的一个字符为一个nibble。
   
   
 MPT树中的节点包括空节点、叶子节点、扩展节点和分支节点:
