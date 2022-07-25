@@ -19,7 +19,9 @@ MPT树中的节点包括空节点、叶子节点、扩展节点和分支节点:
 ![image](https://user-images.githubusercontent.com/105497838/180795257-f262e470-78a3-485d-94a6-e5f37e38a702.png)
 如图所示:总共有2个扩展节点，2个分支节点，4个叶子节点。
 
+
 其中叶子结点的键值情况为：
+
 ![image](https://user-images.githubusercontent.com/105497838/180795364-a47fe256-d40f-4fbf-ab3f-8dd2a9df5b6d.png)
 
 
