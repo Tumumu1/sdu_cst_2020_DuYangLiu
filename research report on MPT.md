@@ -66,9 +66,8 @@ Get：
     
     4.若当前节点为分支节点，若搜索路径为空，则返回分支节点的存储内容；反之利用搜索路径的第一个字节选择分支节点的孩子节点，将剩余的搜索路径作为参数递归地调用查找函数；
     
-    ![image](https://user-images.githubusercontent.com/105497838/180798813-8ceab43a-a06e-453a-9088-b484c0ae169b.png)
-    
-    查找过程可以由此图所示。
+![image](https://user-images.githubusercontent.com/105497838/180798813-8ceab43a-a06e-453a-9088-b484c0ae169b.png)
+查找过程可以由此图所示。
     
 Insert：
 
