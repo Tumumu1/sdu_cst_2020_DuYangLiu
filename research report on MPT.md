@@ -2,7 +2,7 @@ Merkle Patricia Tree简称MPT树，提供了一个基于加密学的，自校验
 
 MPT树结合了基数树(Radix Tree)、Merkle Tree、Patricia Tree的优点。Radix Tree的结构如下:
 
-[i0, i1, ..., iN, value]，i0到iN要么指向一个节点，要么是NULL，value存储一个值，这是MPT树用来索引值的最基本结构。Patricia Tree解决了Radix Tree的低效和空间浪费问题。Merkle Tree解决了数据校验及防篡改问题。
+    [i0, i1, ..., iN, value]，i0到iN要么指向一个节点，要么是NULL，value存储一个值，这是MPT树用来索引值的最基本结构。Patricia Tree解决了Radix Tree的低效和空间浪费问题。Merkle Tree解决了数据校验及防篡改问题。
 
 在ethereum中，使用了一种特殊的十六进制前缀（hex-prefix，HP）编码，所以在字母表中就有16个字符。这其中的一个字符为一个nibble。
   
