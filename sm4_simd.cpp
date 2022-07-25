@@ -1,5 +1,5 @@
 
-#include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
 
 #include <Windows.h>
@@ -18,13 +18,13 @@ int main() {
 
  
     double run_time;
-    LARGE_INTEGER time_start;	//¿ªÊ¼Ê±¼ä
-    LARGE_INTEGER time_over;	//½áÊøÊ±¼ä
-    double dqFreq;		//¼ÆÊ±Æ÷ÆµÂÊ
-    LARGE_INTEGER f;	//¼ÆÊ±Æ÷ÆµÂÊ
+    LARGE_INTEGER time_start;	//å¼€å§‹æ—¶é—´
+    LARGE_INTEGER time_over;	//ç»“æŸæ—¶é—´
+    double dqFreq;		//è®¡æ—¶å™¨é¢‘ç‡
+    LARGE_INTEGER f;	//è®¡æ—¶å™¨é¢‘ç‡
     QueryPerformanceFrequency(&f);
     dqFreq = (double)f.QuadPart;
-    QueryPerformanceCounter(&time_start);	//¼ÆÊ±¿ªÊ¼
+    QueryPerformanceCounter(&time_start);	//è®¡æ—¶å¼€å§‹
 
 
     SM4_KeyInit(key, &sm4_key);
@@ -32,11 +32,11 @@ int main() {
     SM4_Encrypt_x8(in, in, sm4_key);
 
 
-    QueryPerformanceCounter(&time_over);	//¼ÆÊ±½áÊø
+    QueryPerformanceCounter(&time_over);	//è®¡æ—¶ç»“æŸ
     run_time = 1000000 * (time_over.QuadPart - time_start.QuadPart) / dqFreq;
  
-    printf("\nrun_time£º%fus\n", run_time);
+    cout<<"run_timeï¼š"<<run_time;
    
-    system("pause");
+   
     return 0;
 }
