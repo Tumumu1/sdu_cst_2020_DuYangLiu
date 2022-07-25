@@ -1,9 +1,8 @@
-
-#include <iostream>
+#include <stdio.h>
 #include <stdlib.h>
 
 #include <Windows.h>
-#include "sm4_sbox.h"
+#include "sm4_simd_sbox.h"
 int main() {
     // 01 23 45 67 89 ab cd ef fe dc ba 98 76 54 32 10
     unsigned char key[16 * 8] = { 0x01, 0x23, 0x45, 0x67, 0x89, 0xab,
@@ -34,9 +33,9 @@ int main() {
 
     QueryPerformanceCounter(&time_over);	//计时结束
     run_time = 1000000 * (time_over.QuadPart - time_start.QuadPart) / dqFreq;
- 
-    cout<<"run_time："<<run_time;
+
+    printf("\nrun_time：%fus\n", run_time);
    
-   
+    system("pause");
     return 0;
 }
