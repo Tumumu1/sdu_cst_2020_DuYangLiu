@@ -17,6 +17,8 @@ SM3的Rho攻击思路：
 
 
 SM4的优化是基于上个学期与同学一起实现过的任务（可能上学期的队友也上传了，但创新创业课我们并没有组队），使用C++实现，在基本实现的基础上进行了SIMD优化。
+SM4运行结果：
+![image](https://user-images.githubusercontent.com/105497838/180700101-53c2b634-4c58-493f-bb4b-4dcf110c2692.png)
 
 
 Merkle Tree：生成了一个十万个节点的Merkle tree。
