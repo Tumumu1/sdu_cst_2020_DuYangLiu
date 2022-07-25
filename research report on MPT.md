@@ -32,3 +32,35 @@ MPT树中的节点包括空节点、叶子节点、扩展节点和分支节点:
 节点的前缀：
 
 ![image](https://user-images.githubusercontent.com/105497838/180795410-e67977b0-5ef3-46e7-8901-87163323fdf4.png)
+
+
+以太坊中树结构:
+![image](https://user-images.githubusercontent.com/105497838/180797062-3e1c79d6-fc6e-400d-9848-c0196858c90d.png)
+以太坊中所有的merkel树都是MPT 。在一个区块的头部（block head）中，有三颗MPT的树根。一个区块头里面，除了一些常规数据，还有三个很重要的数据就是三个梅克尔-帕特里夏树的树根，通过树根就可以访问以太坊底层数据库内的数据，stateRoot•状态树的树根，transactionRoot•交易树的树根，还有receiptsRoot•收据树的树根。
+
+1.State trie：世界状态树，随时更新；它存储的键值对(path, value)可以表示为(sha3(ethereumAddress), rlp(ethereumAccount) )。其中account是4个元素构成的数组：[nonce, balance, storageRoot,codeHash];
+
+
+2.·Storage trie：存储树是保存所有合约数据的地方；每个合约账户都有一个独立的存储空间;
+
+3.Transaction trie：每个区块都会有单独的交易树；它的路径（path）是rlp(transactionIndex)，只有在挖矿时才能确定；一旦出块，不再更改;
+
+4.Receipts trie：每个区块也有自己的收据树；路径也表示为rlp(transactionIndex);
+
+
+以太坊数据的存储结构:
+![image](https://user-images.githubusercontent.com/105497838/180797438-a3c300cd-9efd-407c-b39c-8f612d232c63.png)
+上面是区块头，有个stateroot，是状态数的树根，状态树是一个世界状态，他包含了所有账户的状态的集合，所以他下面的树根据每个账户的地址hash作为key，然后存每个账户的数据。所以说如果访问一个账户，按照刚才的规则找路径，直到找到某一个叶子节点，他的叶子节点里面存的是什么呢，是账户account的内容，同时，codehash只是一个32字节的hash，他还对应到真正的code的存储空间 去，storageroot是梅克尔帕特里夏树的树根，它对应的是底层数据库中合约数据的存储位置。
+
+MPT树的操作：
+
+包括Get、Insert、Delete、Update、Commit，具体如下：
+
+Get：
+    1.若当前节点为叶子节点，存储的内容是数据项的内容，且搜索路径的内容与叶子节点的key一致，则表示找到该节点；反之则表示该节点在树中不存在；
+    2.若当前节点为扩展节点，且存储的内容是哈希索引，则利用哈希索引从数据库中加载该节点，再将搜索路径作为参数，对新解析出来的节点递归地调用查找函数；
+    3.若当前节点为扩展节点，存储的内容是另外一个节点的引用，且当前节点的key是搜索路径的前缀，则将搜索路径减去当前节点的key，将剩余的搜索路径作为参数，对其子节点递归地调用查找函数；若当前节点的key不是搜索路径的前缀，表示该节点在树中不存在；
+    4.若当前节点为分支节点，若搜索路径为空，则返回分支节点的存储内容；反之利用搜索路径的第一个字节选择分支节点的孩子节点，将剩余的搜索路径作为参数递归地调用查找函数；
+    ![image](https://user-images.githubusercontent.com/105497838/180798813-8ceab43a-a06e-453a-9088-b484c0ae169b.png)
+    查找过程可以由此图所示。
+
