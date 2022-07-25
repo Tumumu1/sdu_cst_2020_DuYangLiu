@@ -1,4 +1,4 @@
-#include "sm4_simd_sbox.h"
+#include "sm4_sbox.h"
 #include <immintrin.h>
 
 static const uint32_t BOX0[] = {
