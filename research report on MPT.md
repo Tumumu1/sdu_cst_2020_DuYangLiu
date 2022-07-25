@@ -54,7 +54,7 @@ MPT树中的节点包括空节点、叶子节点、扩展节点和分支节点:
 
 MPT树的操作：
 
-包括Get、Insert、Delete、Update、Commit，具体如下：
+包括Get、Insert、Delete、Update，具体如下：
 
 Get：
 
