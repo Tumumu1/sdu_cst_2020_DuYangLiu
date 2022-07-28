@@ -9,10 +9,24 @@
     3.SM3的rho攻击（可以碰撞到28bit，但32bit未碰撞成功）；
     4.SM4的实现；
     5.SM4的simd优化（这个是基于上学期的一门课小组所做过的实验，或许当时的队友也在创新创业课上传了，在此备注）；
-    6.生成一个包含十万个节点的Merkle Tree；
+    6.生成一个包含十万个节点的Merkle Tree（但是未结合RFC6962,只是正常构造的Merkle Tree）；
     7.SHA256的长度扩展攻击；
     8.完成了 research report on MPT的project；
     9.完成结合RFC6979实现sm2；
+未完成的项目：
+
+    1.Project : Find a key with hash value "sdu _ cst_20220610”under a message composed ofyour name folowed by your student ID . Forexample ," San Zhan 202000460001”.
+    2.Project : Find a 64-byte message under somek fulfilling that their hash value is symmetrical .
+    3.*Project:send a tx on Bitcoin testnet,andparse the tx data down to everybit,betterwrite script yourself
+    4.*Project:forge a signature to pretend that youare Satoshi
+    5.*Project:report on the application of thisdeduce technique in Ethereum with ECDSA
+    6.*Project:verify the above pit falls withproof-of-concept code
+    7.*Project:lmplement the above ECMH schemeDecrypt
+    8.*Project:Implement a PGP scheme with SM2
+    9.*Project:implement sm2 2P sign with realnetwork communication
+    10.*Project:implement sm2 2P decrypt with realnetwork communication
+    11.*Project:do your best to optimize SM3implementation(software)
+    12.*Project:Try to lmplement this-GeneralizingHash Chains
 1.SM3的实现；
 
 SM3运行结果：
