@@ -7,12 +7,11 @@
     1.SM3的实现；
     2.SM3的生日攻击（可以实现到24bit与28bit，32bit未碰撞成功）；
     3.SM3的rho攻击（可以碰撞到28bit，但32bit未碰撞成功）；
-    4.SM4的实现；
-    5.SM4的simd优化（这个是基于上学期的一门课小组所做过的实验，或许当时的队友也在创新创业课上传了，在此备注）；
-    6.生成一个包含十万个节点的Merkle Tree（但是未结合RFC6962,只是正常构造的Merkle Tree）；
-    7.SHA256的长度扩展攻击；
-    8.完成了 research report on MPT的project；
-    9.完成结合RFC6979实现sm2；
+    4.SM4的实现及SM4的simd优化（这个是基于上学期的一门课小组所做过的实验，或许当时的队友也在创新创业课上传了，在此备注）；
+    5.生成一个包含十万个节点的Merkle Tree（但是未结合RFC6962,只是正常构造的Merkle Tree）；
+    6.SHA256的长度扩展攻击；
+    7.完成了 research report on MPT的project；
+    8.完成结合RFC6979实现sm2；
 未完成的项目：
 
     1.*Project:send a tx on Bitcoin testnet,andparse the tx data down to everybit,betterwrite script yourself
