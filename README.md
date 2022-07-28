@@ -44,3 +44,8 @@ Merkle Tree：生成了一个十万个节点的Merkle tree。
 
 8.通过查阅资料，学习了以下MPT，完成了 research report on MPT的project。
 
+
+9.完成结合RFC6979实现：
+
+![image](https://user-images.githubusercontent.com/105497838/181406159-d5269384-4146-42c6-82c4-ad1402560542.png)
+
