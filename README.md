@@ -3,7 +3,15 @@
 小组成员：杜杨柳，2020级网安3班，GitHub名称Tumumu1
 
 所完成的项目（未组队，完成人仅杜杨柳）：
-
+ 1.SM3的实现；
+ 2.SM3的生日攻击（可以实现到24bit与28bit，32bit未碰撞成功）；
+ 3.SM3的rho攻击（可以碰撞到28bit，但32bit未碰撞成功）；
+ 4.SM4的实现；
+ 5.SM4的simd优化（这个是基于上学期的一门课小组所做过的实验，或许当时的队友也在创新创业课上传了，在此备注）；
+ 6.生成一个包含十万个节点的Merkle Tree；
+ 7.SHA256的长度扩展攻击；
+ 8.完成了 research report on MPT的project；
+ 9.完成结合RFC6979实现sm2；
 1.SM3的实现；
 
 SM3运行结果：
@@ -47,6 +55,6 @@ Merkle Tree：生成了一个十万个节点的Merkle tree。
 （在仓里的md文件）
 
 
-9.完成结合RFC6979实现：
+9.完成结合RFC6979实现sm2：
 
 ![image](https://user-images.githubusercontent.com/105497838/181406316-e73be5e9-8c48-45af-8e30-bf7ef115fe63.png)
