@@ -47,5 +47,4 @@ Merkle Tree：生成了一个十万个节点的Merkle tree。
 
 9.完成结合RFC6979实现：
 
-![image](https://user-images.githubusercontent.com/105497838/181406159-d5269384-4146-42c6-82c4-ad1402560542.png)
-
+![image](https://user-images.githubusercontent.com/105497838/181406316-e73be5e9-8c48-45af-8e30-bf7ef115fe63.png)
