@@ -154,6 +154,44 @@ SM3运行结果：
 
 说明：SM4的实现是参考自国家标准文档，编程语言为C++，同样也是实现算法的各个小步骤后进行输出测试。
 
+实现各个小步骤后进行SM4的循环，具体操作也是基于逻辑运算符：
+    void SM4_cycle(int x0x1x2x3[], int key32)
+    {
+        int xi = x0x1x2x3[0];
+        //sbox_input=xi+1⊕xi+2⊕xi+3⊕rki
+        int sbox_input = x0x1x2x3[1] ^ x0x1x2x3[2] ^ x0x1x2x3[3] ^ key32;
+
+        int sbox_input_arr[4] = { 0 };
+
+        split_sbox_input(sbox_input, sbox_input_arr);
+
+        int sbox_output_arr[4] = { 0 };
+        for (int i = 0; i < 4; i++)
+        {
+            S_change(sbox_input_arr[i], sbox_output_arr[i]);
+        }
+
+        int sbox_output = 0;
+        join_sbox_output(sbox_output_arr, sbox_output);
+
+        int y2 = 0, y10 = 0, y18 = 0, y24 = 0;
+
+        cycle_shift_left(sbox_output, 2, y2);
+        cycle_shift_left(sbox_output, 10, y10);
+        cycle_shift_left(sbox_output, 18, y18);
+        cycle_shift_left(sbox_output, 24, y24);
+
+
+        // xi+4=sbox_output⊕y2⊕y10⊕y18⊕y24⊕xi
+
+        int xi_4 = sbox_output ^ y2 ^ y10 ^ y18 ^ y24 ^ xi;
+
+        x0x1x2x3[0] = x0x1x2x3[1];
+        x0x1x2x3[1] = x0x1x2x3[2];
+        x0x1x2x3[2] = x0x1x2x3[3];
+        x0x1x2x3[3] = xi_4;
+    }
+
 SM4运行结果：
 ![image](https://user-images.githubusercontent.com/105497838/180700101-53c2b634-4c58-493f-bb4b-4dcf110c2692.png)
 
