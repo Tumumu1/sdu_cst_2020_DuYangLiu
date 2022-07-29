@@ -47,19 +47,21 @@ SM3运行结果：
 ![image](https://user-images.githubusercontent.com/105497838/180598081-4b4361df-9b8b-4a36-a573-9c9dfed0ab04.png)
 4.SM4的实现；
 
-说明：SM4的实现是参考自国家标准文档，
+说明：SM4的实现是参考自国家标准文档，编程语言为C++，同样也是实现算法的各个小步骤后进行输出测试。
 
 SM4运行结果：
 ![image](https://user-images.githubusercontent.com/105497838/180700101-53c2b634-4c58-493f-bb4b-4dcf110c2692.png)
 
-5.SM4的simd优化（这个是基于上学期的一门课小组所做过的实验，或许当时的队友也在创新创业课上传了，在此备注）；
+5.SM4的simd优化；
 
+说明：SM4的simd优化在学习了simd的原理后进行优化，这个是基于上学期的一门课小组所做过的实验，或许当时的队友也在创新创业课上传了，在此备注。
 
 SM4使用simd优化后的结果图：
 ![image](https://user-images.githubusercontent.com/105497838/180702842-4a370ea2-94d5-4142-937f-e4185ed7ffae.png)
 
 6.生成一个包含十万个节点的Merkle Tree；
 
+说明：简单实现了所需要使用的数据结构，并根据Merkle Tree的原理，结合python中哈希库使用SHA256最后生成了包含十万个节点的Merkle Tree。
 
 Merkle Tree：生成了一个十万个节点的Merkle tree。
 ![image](https://user-images.githubusercontent.com/105497838/180698511-b7fb6cc5-926d-4f31-8d67-3b4b1c707250.png)
@@ -67,14 +69,19 @@ Merkle Tree：生成了一个十万个节点的Merkle tree。
 
 7.SHA256的长度扩展攻击：
 
-（ps：SHA256的代码来自于https://github.com/keanemind/Python-SHA-256   这里只是对长度扩展攻击进行了测试）
+说明：SHA256算法的代码来自于https://github.com/keanemind/Python-SHA-256   这里是在SHA256的基础上根据上学期密码学引论所学的长度扩展攻击的相关知识，对长度扩展攻击进行了测试。
+
+SHA256的长度扩展攻击结果运行图：
 ![image](https://user-images.githubusercontent.com/105497838/180724999-9b0b50a5-bc5f-492a-9b52-d1617006dcdb.png)
 
 8.通过查阅资料，学习了以下MPT，完成了 research report on MPT的project。
 
-（在仓里的md文件）
+说明：在仓里的同名md文件。
 
 
 9.完成结合RFC6979实现sm2：
 
+说明：sm2调用的是python中的gmssl模块，根据RFC6979官方文档，将生成k的方法实现并结合到了sm2中。
+
+结果运行图：
 ![image](https://user-images.githubusercontent.com/105497838/181406316-e73be5e9-8c48-45af-8e30-bf7ef115fe63.png)
