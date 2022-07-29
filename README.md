@@ -154,6 +154,36 @@ SM3运行结果：
 
 说明：SM4的实现是参考自国家标准文档，编程语言为C++，同样也是实现算法的各个小步骤后进行输出测试。
 
+    //分割成8bit S盒输入
+    void split_sbox_input(int sbox_input, int re[])
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            re[3 - i] = sbox_input & 0xff;
+            sbox_input = (unsigned int)sbox_input >> 8;
+        }
+    }
+
+
+    //S盒的输出，合并为一个数
+    void join_sbox_output(int sbox_output_arr[], int& sbox_out)
+    {
+        sbox_out = 0;
+        for (int i = 0; i < 4; i++)
+        {
+            sbox_out = sbox_out << 8;
+            sbox_out += sbox_output_arr[i];
+        }
+    }
+
+    //循环左移函数
+    void cycle_shift_left(int target, int step, int& re)
+    {
+
+        int head = (unsigned int)target >> (32 - step);
+        re = (target << step) | head;
+    }
+
 实现各个小步骤后进行SM4的循环，具体操作也是基于逻辑运算符：
     void SM4_cycle(int x0x1x2x3[], int key32)
     {
