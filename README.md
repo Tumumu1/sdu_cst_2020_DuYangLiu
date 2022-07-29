@@ -348,6 +348,19 @@ Merkle Tree：生成了一个十万个节点的Merkle tree。
 
 说明：SHA256算法的代码来自于https://github.com/keanemind/Python-SHA-256   这里是在SHA256的基础上根据上学期密码学引论所学的长度扩展攻击的相关知识，对长度扩展攻击进行了测试。
 
+给定哈希值H(M)和消息的长度|M|，无需知道消息M，令z=0...0|||M|||x,其中0...0|||M|为消息M的填充信息，x为任意长度的消息，则根据H(M)可计算出新哈希值h'，满足H(M||z)=h'。
+
+    def length_extansion_attack(Original_message, Original_hash, keylen, Forge_message):
+        #任意消息级连在原始消息后进行长度扩展攻击
+        state = reverse_internal_state(Original_hash)
+        Original_message_padded = sha256_padding(Original_message, keylen)
+        Forge_hash = Sha256(Forge_message, state, init_length=len(Original_message_padded) + keylen).hex()
+        _Forge_message = Original_message_padded + bytearray(Forge_message, 'ascii')
+
+        print('Forge_message = ', _Forge_message)
+        print('Forge_message_hash = ', sha256(_Forge_message).hexdigest())
+        return _Forge_message, Forge_hash
+
 SHA256的长度扩展攻击结果运行图：
 ![image](https://user-images.githubusercontent.com/105497838/180724999-9b0b50a5-bc5f-492a-9b52-d1617006dcdb.png)
 
