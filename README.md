@@ -25,20 +25,29 @@
     9.*Project:Try to lmplement this-GeneralizingHash Chains
 1.SM3的实现；
 
+说明：SM3的实现是参考国家标准文档，编程语言为python，在实现各个小步骤后进行测试，成功输出结果。
+
 SM3运行结果：
 ![image](https://user-images.githubusercontent.com/105497838/180703965-d23dfdfd-a32e-4158-978a-8189874a90be.png)
 
-2.SM3的生日攻击（可以实现到24bit与28bit，32bit未碰撞成功）；
+2.SM3的生日攻击；
+
+说明：SM3的生日攻击是在实现sm3后，随机选取原像进行SM3算法，比较输出结果的前n比特，如果一致则攻击成功，但是由于random模块的不随机性以及python语言本身并不高效，可以实现到24bit与28bit，遗憾32bit未碰撞成功。
 
 以前20bit的碰撞为例：![IIY49KMA{~B`WR@0F}YCLOS](https://user-images.githubusercontent.com/105497838/179647606-44853422-7794-4c0a-a1f7-c6cf9532ad60.png)
 ![{BV13$Q7FFQEPR(V$1W~_@U](https://user-images.githubusercontent.com/105497838/179647663-2c71669a-c56e-4d7e-ad31-de325e1bf7fc.png)
 会出现随机数不同而产生的较大差异。
 
-3.SM3的rho攻击（可以碰撞到28bit，但32bit未碰撞成功）；
+3.SM3的rho攻击；
+
+说明：SM3的rho攻击原理参考自Pollard Rho算法，对于一个随机选取的初值，分别每次进行一次SM3操作以及两次SM3操作，直到“套圈”现象的发生，但还是局限于随机初值的选取以及python的低效，
+可以碰撞到28bit，但32bit未碰撞成功。
 
  以20bit攻击为例：
 ![image](https://user-images.githubusercontent.com/105497838/180598081-4b4361df-9b8b-4a36-a573-9c9dfed0ab04.png)
 4.SM4的实现；
+
+说明：SM4的实现是参考自国家标准文档，
 
 SM4运行结果：
 ![image](https://user-images.githubusercontent.com/105497838/180700101-53c2b634-4c58-493f-bb4b-4dcf110c2692.png)
