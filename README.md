@@ -418,6 +418,6 @@ SHA256的长度扩展攻击结果运行图：
 结果运行图：
 ![image](https://user-images.githubusercontent.com/105497838/181406316-e73be5e9-8c48-45af-8e30-bf7ef115fe63.png)
 
-10.通过查阅资料，初步了解了ECDSA在以太坊中的应用，完成了 research report on MPT的project。
+10.通过查阅资料，初步了解了ECDSA在以太坊中的应用，完成了 report on the application of this deduce technique in Ethereum with ECDSA。
 
 说明：在仓里的同名md文件。
