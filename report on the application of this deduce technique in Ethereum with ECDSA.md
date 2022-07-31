@@ -48,7 +48,7 @@ ethereum中的ECDSA：
       4.ecdsa.PrivateKey是暴露给外部使用的主要结构体类型，它其实是算法理论中的私钥和公钥的集合。它的成员D，才真正对应于算法理论中的(标量)私钥dA。
       5.ecdsa.ecdsaSignature对应于生成的数字签名(r, s)。
 
-曲线方程y^2 = x^3 + 7，它的形状如下图所示：
+曲线方程y^2 = x^3 + 7，它的形状如图所示：
 ![image](https://user-images.githubusercontent.com/105497838/182005786-551ded25-4e81-4786-baec-e238793afebe.png)
 
 以太坊中的数字签名全部采用椭圆曲线数字加密算法(ECDSA)， 它的理论基础是椭圆曲线密码学(ECC)，而ECC存在的理论基础是点倍积(point multiplication)算式 Q = dP 中的私钥 d (几乎)不可能被破译。ECC相对于基于大质数分解的RSA，在提供相同安全级别的情况下，仅需长度更短的公钥。
