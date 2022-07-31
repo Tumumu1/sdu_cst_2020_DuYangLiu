@@ -185,6 +185,7 @@ SM3运行结果：
     }
 
 实现各个小步骤后进行SM4的循环，具体操作也是基于逻辑运算符：
+
     void SM4_cycle(int x0x1x2x3[], int key32)
     {
         int xi = x0x1x2x3[0];
