@@ -12,6 +12,7 @@
     6.SHA256的长度扩展攻击；
     7.完成了 research report on MPT的project；
     8.完成结合RFC6979实现sm2；
+    9.完成了ECDSA在以太坊中的应用报告；
 未完成的项目：
 
     1.*Project:send a tx on Bitcoin testnet,andparse the tx data down to everybit,betterwrite script yourself
@@ -365,7 +366,7 @@ Merkle Tree：生成了一个十万个节点的Merkle tree。
 SHA256的长度扩展攻击结果运行图：
 ![image](https://user-images.githubusercontent.com/105497838/180724999-9b0b50a5-bc5f-492a-9b52-d1617006dcdb.png)
 
-8.通过查阅资料，学习了以下MPT，完成了 research report on MPT的project。
+8.通过查阅资料，初步学习了MPT，完成了 research report on MPT的project。
 
 说明：在仓里的同名md文件。
 
@@ -416,3 +417,7 @@ SHA256的长度扩展攻击结果运行图：
         
 结果运行图：
 ![image](https://user-images.githubusercontent.com/105497838/181406316-e73be5e9-8c48-45af-8e30-bf7ef115fe63.png)
+
+10.通过查阅资料，初步了解了ECDSA在以太坊中的应用，完成了 research report on MPT的project。
+
+说明：在仓里的同名md文件。
