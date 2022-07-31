@@ -26,32 +26,32 @@ ECDSA:
  
  验证公钥：
  
-   1.公钥的坐标是有效的，不会是一个极限值空点；
-   2.通过公钥的坐标验证它必须是处于该椭圆曲线上的点；
-   3.要满足n * QA = O，（QA为公钥）；
+        1.公钥的坐标是有效的，不会是一个极限值空点；
+        2.通过公钥的坐标验证它必须是处于该椭圆曲线上的点；
+        3.要满足n * QA = O，（QA为公钥）；
 
 验证签名：
 
-  1.验证 r 和 s 均是处于[1, n-1]范围内的整型数,否则验证失败;
-  2.计算 e = HASH(n)，HAHS()即签名生成过程步骤1中使用的哈希函数;
-  3.计算 z，来自 e的最左边L_n个bits;
-  4.根据w = s^(-1) mod n计算参数 w;
-  5.根据u_1 = zw mod n,u_2 =rw mod n计算两个参数 u1 和 u2;
-  6.计算(x1, y1)，如果(x1, y1)不是一个椭圆曲线上的点，则验证失败;
-  7.如果r = x_1 mod n恒等式不成立，则验证失败;
+      1.验证 r 和 s 均是处于[1, n-1]范围内的整型数,否则验证失败;
+      2.计算 e = HASH(n)，HAHS()即签名生成过程步骤1中使用的哈希函数;
+      3.计算 z，来自 e的最左边L_n个bits;
+      4.根据w = s^(-1) mod n计算参数 w;
+      5.根据u_1 = zw mod n,u_2 =rw mod n计算两个参数 u1 和 u2;
+      6.计算(x1, y1)，如果(x1, y1)不是一个椭圆曲线上的点，则验证失败;
+      7.如果r = x_1 mod n恒等式不成立，则验证失败;
 
 ethereum中的ECDSA：
 
-  1.ecdsa.PublicKey结构体通过持有一个elliptic,Curve接口的实现体，可以提供椭圆曲线的所有属性，和相关操作；PublicKey的成员（X，Y），对应于公钥QA的坐标。
-  2.elliptic.Curve接口声明了椭圆曲线的相关操作方法，其中Add()方法就是椭圆曲线点倍积中的“点相加”操作，Double()就是点倍积中的“点翻倍”操作，ScalarMult()根本就是一个点倍积运算（参数k是标量），IsOnCurve()检查参数所代表的点是否在该椭圆曲线上；
-  3.elliptic.CurveParams结构体实现了<Curve>接口的所有方法，另外用成员属性定义了一个具体的椭圆曲线，比如(Gx, Gy) 表示该椭圆曲线的基点，即算法理论中的G点； N 是与基点对应的可倍积阶数n；B是椭圆曲线几何方程中的参数b，注意此处ecdsa代码包中隐含的椭圆曲线方程为y^2 = x^3 - 3x + b，故只需一项参数b即可。
-  4.ecdsa.PrivateKey是暴露给外部使用的主要结构体类型，它其实是算法理论中的私钥和公钥的集合。它的成员D，才真正对应于算法理论中的(标量)私钥dA。
-  5.ecdsa.ecdsaSignature对应于生成的数字签名(r, s)。
+      1.ecdsa.PublicKey结构体通过持有一个elliptic,Curve接口的实现体，可以提供椭圆曲线的所有属性，和相关操作；PublicKey的成员（X，Y），对应于公钥QA的坐标。
+      2.elliptic.Curve接口声明了椭圆曲线的相关操作方法，其中Add()方法就是椭圆曲线点倍积中的“点相加”操作，Double()就是点倍积中的“点翻倍”操作，ScalarMult()根本就是一个点倍积运算（参数k是标量），IsOnCurve()检查参数所代表的点是否在该椭圆曲线上；
+      3.elliptic.CurveParams结构体实现了<Curve>接口的所有方法，另外用成员属性定义了一个具体的椭圆曲线，比如(Gx, Gy) 表示该椭圆曲线的基点，即算法理论中的G点； N 是与基点对应的可倍积阶数n；B是椭圆曲线几何方程中的参数b，注意此处ecdsa代码包中隐含的椭圆曲线方程为y^2 = x^3 - 3x + b，故只需一项参数b即可。
+      4.ecdsa.PrivateKey是暴露给外部使用的主要结构体类型，它其实是算法理论中的私钥和公钥的集合。它的成员D，才真正对应于算法理论中的(标量)私钥dA。
+      5.ecdsa.ecdsaSignature对应于生成的数字签名(r, s)。
 
 以太坊中的数字签名全部采用椭圆曲线数字加密算法(ECDSA)， 它的理论基础是椭圆曲线密码学(ECC)，而ECC存在的理论基础是点倍积(point multiplication)算式 Q = dP 中的私钥 d (几乎)不可能被破译。ECC相对于基于大质数分解的RSA，在提供相同安全级别的情况下，仅需长度更短的公钥。
 
 参考链接：
 
-  1.https://blog.csdn.net/z1015840017/article/details/125333882?ops_request_misc=&request_id=&biz_id=102&utm_term=ecdsa%E5%9C%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduweb~default-7-125333882.nonecase&spm=1018.2226.3001.4450
-  2.https://blog.csdn.net/teaspring/article/details/77834360?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-77834360-blog-109252225.pc_relevant_multi_platform_whitelistv2_exp3w&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-77834360-blog-109252225.pc_relevant_multi_platform_whitelistv2_exp3w&utm_relevant_index=5
+      1.https://blog.csdn.net/z1015840017/article/details/125333882?ops_request_misc=&request_id=&biz_id=102&utm_term=ecdsa%E5%9C%A8%E4%BB%A5%E5%A4%AA%E5%9D%8A%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduweb~default-7-125333882.nonecase&spm=1018.2226.3001.4450
+      2.https://blog.csdn.net/teaspring/article/details/77834360?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-77834360-blog-109252225.pc_relevant_multi_platform_whitelistv2_exp3w&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-77834360-blog-109252225.pc_relevant_multi_platform_whitelistv2_exp3w&utm_relevant_index=5
 
